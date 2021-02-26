@@ -81,7 +81,7 @@ mod macros;
 
 mod conversion;
 mod error;
-mod ffi;
+pub mod ffi;
 mod function;
 mod hook;
 mod lua;
