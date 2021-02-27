@@ -10,6 +10,7 @@ use std::process::Command;
     all(
         feature = "vendored",
         any(
+            feature = "glau54",
             feature = "lua54",
             feature = "lua53",
             feature = "lua52",
@@ -98,6 +99,9 @@ fn build_glue<P: AsRef<Path> + std::fmt::Debug>(include_path: &P) {
 // that the values selected here may be incorrect, but we have no way to determine
 // that here.
 fn generate_glue() -> Result<()> {
+    #[cfg(feature = "glau54")]
+    panic!("no cross-builds for glau54");
+
     let build_dir = PathBuf::from(env::var_os("OUT_DIR").unwrap());
     let mut glue = File::create(build_dir.join("glue.rs"))?;
     writeln!(
