@@ -45,7 +45,7 @@ use {crate::util::get_destructed_userdata_metatable, serde::Serialize};
 
 /// Top level Lua struct which holds the Lua state itself.
 pub struct Lua {
-    pub(crate) state: *mut ffi::lua_State,
+    pub state: *mut ffi::lua_State,
     main_state: Option<*mut ffi::lua_State>,
     extra: Arc<Mutex<ExtraData>>,
     ephemeral: bool,
